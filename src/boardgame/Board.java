@@ -2,16 +2,15 @@ package boardgame;
 
 public class Board {
 
-	private int rows; 
-	private int columns;
-	private Piece[][] piece;
-	
-	public Board(int rows, int columns, Piece[][] piece) {
-		
+	private int rows; // quantidade de linha
+	private int columns; // quantidade de colunas
+	private Piece[][] pieces;
+
+	public Board(int rows, int columns) {
+
 		this.rows = rows;
 		this.columns = columns;
-		this.piece = piece;
-		piece = new Piece[rows][columns];
+		pieces = new Piece[rows][columns];
 	}
 
 	public int getRows() {
@@ -29,8 +28,16 @@ public class Board {
 	public void setColumns(int columns) {
 		this.columns = columns;
 	}
-	
-	
-	
-	
+
+// metodo para ler as peças nas linha e colunas
+
+	public Piece piece(int row, int column) {
+		return pieces[row][column];
+	}
+//sobrecarga do metodo 'public Piece piece' para receber retornar o atributo 'position'
+
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getColumn()];
+	}
+
 }
