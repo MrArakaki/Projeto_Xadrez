@@ -2,9 +2,10 @@ package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import boardgame.Position;
 
 // É uma sub-classe da classe Piece
-public abstract class ChessPiece extends Piece{
+public abstract class ChessPiece extends Piece {
 
 	private Color color;
 
@@ -18,6 +19,9 @@ public abstract class ChessPiece extends Piece{
 	}
 
 	// não será usado o 'set' porque a cor não poderá ser mudada, e sim acessada.
-	
-	
+
+	protected boolean isThereOpponemtPiece(Position position) {
+		ChessPiece p = (ChessPiece) getBoard().piece(position);
+		return p != null && p.getColor() != color;
+	}
 }
