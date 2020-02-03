@@ -18,18 +18,19 @@ public class ChessMatch {
 	}
 // metodo para retornar uma matriz de peças da partida
 
-	public ChessPiece[][] getPieces() {
+	public  ChessPiece[][] getPieces() {
 		// variavel temporária auxiliar
 		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
 
 		// precorre a matriz
 		for (int i=0; i <board.getRows(); i++) {
-			// precorre a coluna
+		// precorre a coluna
 			for (int j=0; j <board.getColumns(); i++) {
-				mat[i][j]=(ChessPiece) board.piece(i, j); // drawcast em chessPiece
+				mat[i][j]=(ChessPiece) board.piece(i,j); 
 			}
-
+			
 		}
+		
 		return mat;
 	}
 
