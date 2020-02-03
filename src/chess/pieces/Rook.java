@@ -10,10 +10,19 @@ public class Rook extends ChessPiece {
 		super(board, color);
 		// TODO Auto-generated constructor stub
 	}
-@Override
+
+	@Override
 	public String toString() {
 		return "R";
-		
+
+	}
+
+	@Override
+	public boolean[][] possibleMove() {
+		// TODO Auto-generated method stub
+
+		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		return mat;
 	}
 
 }

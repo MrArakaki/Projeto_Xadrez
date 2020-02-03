@@ -10,11 +10,18 @@ public class King extends ChessPiece {
 		super(board, color);
 		// TODO Auto-generated constructor stub
 	}
-	
-@Override
-    public String toString() {
+
+	@Override
+	public String toString() {
 		return "K";
-		
+
+	}
+
+	@Override
+	public boolean[][] possibleMove() {
+		// TODO Auto-generated method stub
+		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		return mat;
 	}
 
 }
