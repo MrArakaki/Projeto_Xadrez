@@ -24,8 +24,8 @@ public class ChessMatch {
 		// precorre a matriz
 		for (int i = 0; i < board.getRows(); i++) {
 			// precorre a coluna
-			for (int j = 0; j < board.getColumns(); i++) {
-				mat[i][j] = (ChessPiece) board.piece(i, j);
+			for (int j = 0; j < board.getColumns(); j++) {
+				mat[i][j] = (ChessPiece) board.piece(i,j);
 			}
 
 		}
