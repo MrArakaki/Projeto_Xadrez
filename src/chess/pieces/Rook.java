@@ -5,7 +5,7 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public  class Rook extends ChessPiece {
+public class Rook extends ChessPiece {
 
 	public Rook(Board board, Color color) {
 		super(board, color);
@@ -27,6 +27,7 @@ public  class Rook extends ChessPiece {
 		Position p = new Position(0, 0);
 
 		// logica para verificar as posições vazias a cima das peças
+		
 		p.setValues(position.getRow() - 1, position.getColumn());
 		while (getBoard().positionExists(p) && !getBoard().thereIsApiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
@@ -37,6 +38,7 @@ public  class Rook extends ChessPiece {
 		}
 
 		// logica para verificar as posições vazias a esquerda das peças
+		
 		p.setValues(position.getRow(), position.getColumn() - 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsApiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
@@ -47,6 +49,7 @@ public  class Rook extends ChessPiece {
 		}
 
 		// logica para verificar as posições vazias a direita das peças
+		
 		p.setValues(position.getRow(), position.getColumn() + 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsApiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
@@ -56,6 +59,7 @@ public  class Rook extends ChessPiece {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		// logica para verificar as posições vazias a baixo das peças
+		
 		p.setValues(position.getRow() + 1, position.getColumn());
 		while (getBoard().positionExists(p) && !getBoard().thereIsApiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;

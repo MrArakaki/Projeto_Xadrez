@@ -17,6 +17,10 @@ public abstract class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
+	
+	public ChessPosition gatChessPosition() {
+		return ChessPosition.fromPosition(position);  
+	}
 
 	// não será usado o 'set' porque a cor não poderá ser mudada, e sim acessada.
 
