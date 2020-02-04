@@ -9,13 +9,24 @@ import chess.pieces.Rook;
 // contém as regras do jogo.
 
 public class ChessMatch {
-
+	private static int turn;
+	private static Color currentPlayer;
 	private static Board board; // tabulheiro do jogo
 
 	public ChessMatch() {
 
 		board = new Board(8, 8); // dimensão do tabulheiro
+		turn = 1;
+		currentPlayer = Color.WHITE;
 		initialSetup();
+	}
+
+	public int getTurn() {
+		return turn;
+	}
+
+	public Color getCorrentPlayer() {
+		return currentPlayer;
 	}
 
 // metodo para retornar uma matriz de peças da partida
@@ -48,6 +59,7 @@ public class ChessMatch {
 		validateSourcePosition(source);
 		validateTargetPossition(source, target);
 		Piece capturedPiece = makeMove(source, target);
+		nextTurn();
 		return (ChessPiece) capturedPiece;
 	}
 
@@ -62,10 +74,18 @@ public class ChessMatch {
 		if (!board.thereIsApiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
-
+		if (currentPlayer != ((ChessPiece) board.piece(position)).getColor()) {
+			throw new ChessException("The chosen piece is not yours");
+		}
 		if (!board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("There is no possible moves for the chosen piece");
 		}
+	}
+
+// troca de turno
+	private static void nextTurn() {
+		turn++;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 
 	private static void validateTargetPossition(Position source, Position target) {
